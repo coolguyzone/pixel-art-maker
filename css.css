@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+.square {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  background-color: white;
+  border: 1px solid black;
+  margin: 0;
+}
+
+.row {
+    text-align: center;
+    margin: 0;
+}
+
+.row:first-of-type {
+  margin-top: 200px;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
