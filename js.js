@@ -21,20 +21,15 @@ canvas.forEach(function(element){
 
 let palette = document.querySelectorAll('.color');
 
-// function selectColor(event) {
-//   if (event.target.classList.contains('red')) {
-//     red = true;
-//     blue = false;
-//   }
-//   else if (event.target.classList.contains('blue')) {
-//     blue = true;
-//     red = false;
-//   }
-// }
+
 
 function selectColor(event) {
+  palette.forEach(function(element){
+    element.classList.remove('selected');
+  })
   selectedColor = event.target.id;
   console.log(selectedColor)
+  event.target.classList.add('selected');
 }
 
 
