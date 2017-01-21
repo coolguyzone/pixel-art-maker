@@ -23,8 +23,8 @@ h1 {
 .color {
   border: 1px solid black;
   border-radius: 100%;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
 }
 
 .colors {
@@ -53,4 +53,10 @@ h1 {
 
 .selected {
   box-shadow: 3px 3px blue;
+}
+
+.custom {
+  padding-top: 9px;
+  font-size: 1.2em;
+  font-weight: bold;
 }
