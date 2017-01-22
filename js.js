@@ -1,10 +1,9 @@
-let blue = false;
-let red = false;
+//DECLARE VARS
 let selectedColor = undefined;
 let grid = document.querySelector('.grid');
 let colors = document.querySelector('.colors');
-console.log(grid);
 
+//CREATE GRID AND PALETTE ON PAGE LOAD
 window.onload = function() {
   createGrid();
   createPalette();
@@ -68,11 +67,13 @@ function createPalette() {
   colors.append(colorDot);
 }
 
+//LOAD REMAINING FUNCTIONALITY AFTER GRID AND PALETTE HAVE LOADED
 setTimeout(function() {
-  //select all squares in grid
+//DECLARE VARIABLES
   let canvas = document.querySelectorAll('.canvas');
   let palette = document.querySelectorAll('.color');
 
+//PALETTE FUNCTIONALITY
   palette.forEach(function(element){
     element.addEventListener('click', selectColor);
   })
@@ -86,75 +87,42 @@ setTimeout(function() {
     event.target.classList.add('selected');
   }
 
-  //add callback function to all squares with event listener
+//CUSTOM COLOR
+      let custom = document.querySelector('#custom');
+      custom.addEventListener('click', customColor);
 
+      function customColor() {
+        let colorChoice = prompt('Please enter a valid color name');
+        selectedColor = colorChoice;
+        custom.style.backgroundColor = colorChoice;
+      }
+
+//GRID FUNCTIONALITY
   canvas.forEach(function(element){
-    element.addEventListener('click', redBack);
+    element.addEventListener('click', colorBack);
   })
 
-  //Paintbrush Dragging Functionality
-  let drag = false;
+  function colorBack(event) {
+      event.target.style.backgroundColor = selectedColor;
+  }
+
+//PAINTBRUSH DRAG FUNCTIONALITY
   canvas.forEach(function(element){
     element.addEventListener('mousedown', startDrag);
     element.addEventListener('mouseup', stopDrag);
   })
 
-
   function startDrag() {
-    drag = true;
-    console.log(drag);
     event.target.style.backgroundColor = selectedColor;
-
-    grid.addEventListener('mouseover', tester);
-
-
-
-    //Custom Color Selection
-    let custom = document.querySelector('#custom');
-    custom.addEventListener('click', customColor);
-
-    }
-
-
+    grid.addEventListener('mouseover', dragColor);
+  }
 
   function stopDrag() {
-    drag = false;
-    console.log(drag);
-    grid.removeEventListener('mouseover', tester);
-
+    grid.removeEventListener('mouseover', dragColor);
   }
 
-  //a callback function that makes squares red
-  function redBack(event) {
-
-      event.target.style.backgroundColor = selectedColor;
-
-  }
-
-
-  //add event listeners to palette divs
-
-
-
-
-
-
-
-
-
-
-  function customColor() {
-    let colorChoice = prompt('Please enter a valid color name');
-    selectedColor = colorChoice;
-    custom.style.backgroundColor = colorChoice;
-
-  }
-
-
-  function tester() {
-    console.log('weeeee');
+  function dragColor() {
     event.target.style.backgroundColor = selectedColor;
   }
-
 
 }, 0)
