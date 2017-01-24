@@ -20,7 +20,6 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   padding-top: 2px;
-  padding-bottom: -8px;
 }
 
 .square {
@@ -33,6 +32,7 @@ h1 {
 
 .canvas {
     margin: -2px 0;
+    cursor: crosshair;
 }
 
 /*PALETTE*/
@@ -42,6 +42,7 @@ h1 {
   width: 28px;
   height: 28px;
   margin: 0 1.5px;
+  cursor: pointer;
 }
 
 .colors {
